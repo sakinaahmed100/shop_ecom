@@ -30,12 +30,17 @@ const CartContextProvider = ({ children }) => {
 
 
 const ADD_TO_CART = (id, product, amount, color) => {
+  
   console.log(id,product,amount,color,"add to cart");
   dispatch({ type: "add_to_cart", payload: { id, product, amount, color } })
 }
 //push item to local storage
 useEffect(() => {
+  console.log(state.cart,"update item price sae pehlay")
+
   dispatch({ type: "update_item_price" })
+  console.log(state.cart,"update item pricek baad")
+
   localStorage.setItem("cartData", JSON.stringify(state.cart))
 
 }, [state.cart])
