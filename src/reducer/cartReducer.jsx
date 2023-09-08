@@ -62,7 +62,7 @@ export default function filterReducer(state, action) {
 
         case "update_item_price": {
             console.log(state.cart)
-            let totalAmount = state.cart.reduce((acc, item) => acc + item.amount, 0);
+            let totalAmount = state.cart?.reduce((acc, item) => acc + item.amount, 0);
             let sub_total = state.cart.map((e) => {
                 let product = e.price * e.amount
 

@@ -1,12 +1,12 @@
 export default function productReducer(state,action) {
 switch (action.type) {
     
-    case "MY_LOADING":
+    case "MY_LOADING":{
     return{
         ...state,
         isLoading:true,
-    }
-    case "SET_API_DATA":
+    }}
+    case "SET_API_DATA":{
         const featuredData= action.payload.filter((e)=>{
             return e.featured===true
 
@@ -16,7 +16,7 @@ switch (action.type) {
         isLoading:false,
         products:action.payload,
         featuredProducts:featuredData,
-    }
+    }}
     case "MY_ERROR":
         return{
             ...state,
@@ -51,5 +51,4 @@ switch (action.type) {
         return state;
 }
 
-    return state
   }
