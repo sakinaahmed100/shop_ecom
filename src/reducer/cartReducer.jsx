@@ -4,6 +4,7 @@ export default function filterReducer(state, action) {
       
         case "add_to_cart": {
             let {id,color,amount,product}=action.payload
+            console.log("yes",action.payload);
 
             const doubleItem = state.cart?.filter((e) => {
                 console.log(id + color);
