@@ -7,7 +7,7 @@ import Button from "./components/Button"
 export default function ConfirmOrder() {
     const { cart,Success,getAddress } = useCartContext()
 useEffect(()=>{
-    if(cart.length===0){
+    if(cart?.length===0){
         console.log("hj");
         location.pathname="/products"
     }

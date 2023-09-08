@@ -42,7 +42,7 @@ export default function SingleProduct() {
   else {
     const { id: key, name, company, price, colors, description, stock, stars, reviews, image } = singleProductObj;
     useEffect(() => {
-      if (image && image.length > 0) {
+      if (image && image?.length > 0) {
         setImage(image[0]?.url);
       }
     
