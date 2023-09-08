@@ -9,7 +9,7 @@ export default function filterReducer(state, action) {
         case "FILTER_DATA":{
             let filtered_product = [...action.payload]
             let all_product = [...action.payload]
-            let priceArray = all_product.map((e) => {
+            let priceArray = all_product?.map((e) => {
                 return e.price
             })
             let maxPrice = Math.max(...priceArray)
