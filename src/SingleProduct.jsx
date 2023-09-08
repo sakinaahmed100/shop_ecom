@@ -43,7 +43,7 @@ export default function SingleProduct() {
     const { id: key, name, company, price, colors, description, category, stock, stars, reviews, image } = singleProductObj;
     useEffect(() => {
       if (image && image?.length > 0) {
-        setImage(image[0].url);
+        setImage(image?.[0]?.url);
       }
     }, [image]);
     useEffect(() => {
@@ -51,9 +51,9 @@ export default function SingleProduct() {
     }, [stock]);
     useEffect(() => {
       if (stock && stock > 0) {
-        setColor(colors[0]);
+        setColor(colors?.[0]);
       }
-    }, [colors]);
+    }, [colors?]);
 
     console.log(singleProductObj)
     return (

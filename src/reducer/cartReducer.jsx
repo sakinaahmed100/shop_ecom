@@ -14,7 +14,7 @@ export default function filterReducer(state, action) {
             console.log(state.cart);
 
             if (doubleItem?.length !== 0) {
-                console.log(doubleItem[0].amount + amount)
+                console.log(doubleItem?.[0]?.amount + amount)
                 let updatedProduct = state.cart?.map((e) => {
                     if (e.id === id + color) {
 
@@ -45,7 +45,7 @@ export default function filterReducer(state, action) {
                     name: product.name,
                     amount: amount,
                     price: product.price,
-                    image: product.image[0].url,
+                    image: product.image?.[0]?.url,
                     color: color,
                     stock: product.stock
 
