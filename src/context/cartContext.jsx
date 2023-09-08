@@ -30,6 +30,7 @@ const CartContextProvider = ({ children }) => {
 
 
 const ADD_TO_CART = (id, product, amount, color) => {
+  console.log(id,product,amount,color);
   dispatch({ type: "add_to_cart", payload: { id, product, amount, color } })
 }
 //push item to local storage

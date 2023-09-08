@@ -21,7 +21,7 @@ useEffect(()=>{
                     <form action="https://formspree.io/f/xwkdkark" method='POST'>
                         <input className='formInput'onChange={(e)=>getAddress(e)} type="address" name='address' placeholder='Enter address for delivery' required autoComplete='off' />
                         <div>
-                            {cart.map((item, index) => (
+                            {cart?.map((item, index) => (
                                 <div key={index}>
                                     <textarea
                                         className="cartTextArea"

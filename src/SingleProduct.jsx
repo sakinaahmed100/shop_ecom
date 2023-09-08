@@ -89,7 +89,11 @@ export default function SingleProduct() {
 
 
               {/* //add to cart */}
-              <CartAmountToggle id={id} product={singleProductObj} color={color} amount={amount} setIncrease={setIncrease} setDecrease={setDecrease}>
+              <CartAmountToggle id={id} product={singleProductObj} 
+              color={color} 
+              amount={amount} 
+              setIncrease={setIncrease} 
+              setDecrease={setDecrease}>
 
               </CartAmountToggle>
 

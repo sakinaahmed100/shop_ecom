@@ -1,5 +1,3 @@
-import React from 'react'
-import { styled } from 'styled-components'
 import Button from"./Button"
 import { NavLink } from 'react-router-dom'
 import { useCartContext } from '../context/cartContext'
