@@ -23,7 +23,7 @@ export default function filterReducer(state, action) {
                     ...state.filters,
                     maxPrice: maxPrice,
                     price:maxPrice,
-                    minPrice:0,
+                    minPrice:"0",
                 
                 }
             }}

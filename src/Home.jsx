@@ -4,6 +4,11 @@ import Trusted from './components/Trusted'
 import FeaturedProducts from './components/FeaturedProducts'
 
 export default function Home() {
+  // "eslint": "^8.45.0",
+  // "eslint-plugin-react": "^7.32.2",
+  // "eslint-plugin-react-hooks": "^4.6.0",
+  // "eslint-plugin-react-refresh": "^0.4.3",
+  // "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
 
   return (
     <>

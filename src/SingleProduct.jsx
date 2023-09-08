@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useMyContext } from './context/productContext';
 import { styled } from 'styled-components'
@@ -40,21 +40,18 @@ export default function SingleProduct() {
     )
   }
   else {
-    const { id: key, name, company, price, colors, description, category, stock, stars, reviews, image } = singleProductObj;
+    const { id: key, name, company, price, colors, description, stock, stars, reviews, image } = singleProductObj;
     useEffect(() => {
-      if (image && image?.length > 0) {
-        setImage(image?.[0]?.url);
+      if (image && image.length > 0) {
+        setImage(image[0]?.url);
       }
-    }, [image]);
-    useEffect(() => {
-      setStock(stock)
-    }, [stock]);
-    useEffect(() => {
+    
+      setStock(stock);
+    
       if (stock && stock > 0) {
         setColor(colors?.[0]);
       }
-    }, [colors?]);
-
+    }, [image, stock, colors]);
     console.log(singleProductObj)
     return (
       <>
@@ -62,9 +59,9 @@ export default function SingleProduct() {
           <div className="container grid-two-col">
             <div className="images">
               <div className="grid_four">
-                {image?.map((e) => {
+                {image?.map((e,i) => {
                   return (
-                    <div className="imgs" onClick={() => setImage(e.url)}><img src={e.url} alt="" /></div>
+                    <div key={i}  className="imgs" onClick={() => setImage(e.url)}><img src={e.url} alt="" /></div>
                   )
                 })}
               </div>
