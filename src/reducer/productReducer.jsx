@@ -7,7 +7,7 @@ switch (action.type) {
         isLoading:true,
     }}
     case "SET_API_DATA":{
-        const featuredData= action.payload.filter((e)=>{
+        const featuredData= action.payload?.filter((e)=>{
             return e.featured===true
 
         })

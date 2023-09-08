@@ -93,7 +93,7 @@ export default function filterReducer(state, action) {
             let tempFilterData = [...all_products]
 
             if (text) {
-                tempFilterData = tempFilterData.filter((item) => {
+                tempFilterData = tempFilterData?.filter((item) => {
                     console.log(tempFilterData)
                     return item.name.toLowerCase().includes(text.toLowerCase())
 
@@ -101,18 +101,18 @@ export default function filterReducer(state, action) {
             }
             if (category && category !== "All") {
                 console.log("hi", category);
-                tempFilterData = tempFilterData.filter((item) =>
+                tempFilterData = tempFilterData?.filter((item) =>
                     item.category.toLowerCase() === category.toLowerCase())
 
             }
 
             if (company && company !== "All") {
-                tempFilterData = tempFilterData.filter((item) => {
+                tempFilterData = tempFilterData?.filter((item) => {
                     return item.company.toLowerCase() === company.toLowerCase()
                 });
             }
             if (color && color !== "All") {
-                tempFilterData = tempFilterData.filter((item) => {
+                tempFilterData = tempFilterData?.filter((item) => {
                     console.log(item.colors)
                     return item.colors.includes(color)
                 })
@@ -120,7 +120,7 @@ export default function filterReducer(state, action) {
             if (price) {
               
 
-                tempFilterData = tempFilterData.filter((item) => {
+                tempFilterData = tempFilterData?.filter((item) => {
                     return item.price <= price
                 })
             }
