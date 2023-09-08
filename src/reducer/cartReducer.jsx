@@ -68,7 +68,7 @@ export default function filterReducer(state, action) {
 
                 return (product)
             })
-            let subtotalAmount = sub_total.reduce((acc, item) => acc + item, 0);
+            let subtotalAmount = sub_total?.reduce((acc, item) => acc + item, 0);
 
             console.log(subtotalAmount);
             return {
