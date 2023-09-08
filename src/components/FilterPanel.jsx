@@ -18,7 +18,7 @@ export default function FilterPanel() {
                     </button>
 
                 </div>
-                <div className="totalProducts">{filtered_products.length} products available</div>
+                <div className="totalProducts">{filtered_products?.length} products available</div>
                 <div className='useless'></div>
                 <div className="filterOptions">
                     <form action="#">

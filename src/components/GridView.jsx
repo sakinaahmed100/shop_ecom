@@ -5,7 +5,7 @@ export default function GridView({ filtered_products }) {
     return (
         <>
             <Wrapper className="grid-three-col">
-                {filtered_products.length === 0 ?
+                {filtered_products?.length === 0 ?
         <div className='empty'>There are no products in this particular filter.</div> :
                 (filtered_products?.map((elem, i) => {
                     return (<Card key={i} {...elem}></Card>)

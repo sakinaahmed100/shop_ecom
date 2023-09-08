@@ -10,10 +10,10 @@ export default function filterReducer(state, action) {
                 console.log(e.id);
                 return e.id === id + color
             })
-            console.log(doubleItem.length);
+            console.log(doubleItem?.length);
             console.log(state.cart);
 
-            if (doubleItem.length !== 0) {
+            if (doubleItem?.length !== 0) {
                 console.log(doubleItem[0].amount + amount)
                 let updatedProduct = state.cart?.map((e) => {
                     if (e.id === id + color) {

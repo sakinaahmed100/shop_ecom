@@ -14,7 +14,7 @@ export default function Cart() {
 
 
       {
-        (cart.length === 0) ?
+        (cart?.length === 0) ?
         <div className='emptyDiv'>
           <h3>Your cart is empty</h3>
           <div><img src="/images/cart.jpg" alt="" /></div>
