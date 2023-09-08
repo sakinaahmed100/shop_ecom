@@ -7,7 +7,7 @@ import Button from "./Button"
 export default function LeftPanel() {
   const { Search, removeFilters, filters: { color, price, minPrice, maxPrice }, all_products } = useFilterContext()
   const getUniqueData = (data, type) => {
-    let uniqueArray = data.map((e) => {
+    let uniqueArray = data?.map((e) => {
       return e[type]
     })
     return uniqueArray = ["All", ...new Set(uniqueArray)]
@@ -36,7 +36,7 @@ export default function LeftPanel() {
           <h5>Categories</h5>
 
           <div className="categories">
-            {getUniqueCategory.map((e, id) => {
+            {getUniqueCategory?.map((e, id) => {
               return (<button
                 key={id}
                 type='button'
@@ -52,7 +52,7 @@ export default function LeftPanel() {
           <form action="#">
             <select name="company"
               onClick={Search} id="">
-              {getUniqueCompany.map((e, id) => {
+              {getUniqueCompany?.map((e, id) => {
                 return (<option
                   key={id}
                   value={e}>{e}</option>)
@@ -63,7 +63,7 @@ export default function LeftPanel() {
 
         <div className="colors">
           <h3 className='colorsHeading'>Colors:</h3>
-          {uniqueColor.map((e, id) => {
+          {uniqueColor?.map((e, id) => {
             if (e === "All") {
               return (<button
                 key={id}

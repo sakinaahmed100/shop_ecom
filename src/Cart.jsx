@@ -45,7 +45,7 @@ export default function Cart() {
             </div>
             <div className="cartData">
 
-              {cart.map((item) => {
+              {cart?.map((item) => {
                 return (<CartItem {...item}></CartItem>)
               })}
 

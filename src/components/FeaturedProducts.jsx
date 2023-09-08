@@ -19,7 +19,7 @@ if(isLoading){
 
                 </div>
                 <div className="card">
-                    {featuredProducts.map((elem)=>{
+                    {featuredProducts?.map((elem)=>{
                         return (
                             <Card key={elem.id} {...elem}></Card>
                         )

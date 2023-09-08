@@ -15,7 +15,7 @@ export default function filterReducer(state, action) {
 
             if (doubleItem.length !== 0) {
                 console.log(doubleItem[0].amount + amount)
-                let updatedProduct = state.cart.map((e) => {
+                let updatedProduct = state.cart?.map((e) => {
                     if (e.id === id + color) {
 
                         let newAmount = e.amount + amount
@@ -63,7 +63,7 @@ export default function filterReducer(state, action) {
         case "update_item_price": {
             console.log(state.cart)
             let totalAmount = state.cart?.reduce((acc, item) => acc + item.amount, 0);
-            let sub_total = state.cart.map((e) => {
+            let sub_total = state.cart?.map((e) => {
                 let product = e.price * e.amount
 
                 return (product)
@@ -79,7 +79,7 @@ export default function filterReducer(state, action) {
         }
 
         case "increase": {
-            let updatedIncProduct = state.cart.map((e) => {
+            let updatedIncProduct = state.cart?.map((e) => {
                 if (e.id === action.payload.id) {
                     let increasedAmount = e.amount + 1
                     if (e.amount === action.payload.stock) {
@@ -101,7 +101,7 @@ export default function filterReducer(state, action) {
             }
         }
         case "decrease": {
-            let updatedDecProduct = state.cart.map((e) => {
+            let updatedDecProduct = state.cart?.map((e) => {
                 if (e.id === action.payload.id) {
                     let decreasedAmount = e.amount - 1
                     if (e.amount === 1) {
