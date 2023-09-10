@@ -3,13 +3,14 @@ import { styled } from 'styled-components'
 import FormatPrice from './FormatPrice'
 
 export default function Card(elem) {
-    const { id, name, price, image,category } = elem
+    const { id, name, price, images,category } = elem
+    console.log(id,name, price, images,category);
     return (<>
 
-        <NavLink to={`/singleproduct/${elem.id}`}>
+        <NavLink to={`/singleproduct/${id}`}>
             <Cards>
                 <div className="imgDiv">
-                    <img src={image} alt={`as`} />
+                    <img src={images?.[0]} alt={`as`} />
                     <button>{category}</button>
                 </div>
                 <div className='text'>
@@ -28,6 +29,9 @@ width: 20vw;
 
 .imgDiv{
     position: relative;
+    width: 20vw;
+    height: 20vh;  
+      overflow: hidden;
 
     button{
         position: absolute;
@@ -42,7 +46,8 @@ padding: .3rem;
     }
 }
 img{
-    width: 19vw;
+    width: 20vw;
+
 }
 
 .text{

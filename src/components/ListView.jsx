@@ -8,20 +8,20 @@ export default function ListView({ filtered_products }) {
 
         <Wrapper>
             {filtered_products?.map((e,i) => {
-                const { name, price, image, description } = e
+                const { name, price, images, description } = e
                 return (
                     <div key={i} >
-                        <NavLink to={`/singleproduct/${filtered_products.id}`}>
+                        <NavLink to={`/singleproduct/${e.id}`}>
 
                             <div className="listViewDiv grid-col-two">
                                 <div className="listImage">
-                                    <img src={image} alt="" />
+                                    <img src={images} alt="" />
 
                                 </div>
                                 <div className="listText">
                                     <p>{name}</p>
                                     <p><FormatPrice price={price}></FormatPrice></p>
-                                    <p className="list_description">{description.slice(0,90)}...</p>
+                                    <p className="list_description">{description?.slice(0,90)}...</p>
                                     <button>SEE MORE</button>
                                 </div>
                             </div>
@@ -49,7 +49,9 @@ padding: .5rem 1vw;
 display: flex;
 
 .listImage{
-    width: 35vw;
+    width: 25vw;
+    height: 20vh;
+    overflow: hidden;
 }
 img{
     width: 90%;

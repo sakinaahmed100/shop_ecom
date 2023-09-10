@@ -8,12 +8,11 @@ import CartAmountToggle from './components/CartAmounttoggle';
 
 export default function SingleProduct() {
   const { id } = useParams();
-  const API = "https://api.pujakaitem.com/api/products/";
   const [color, setColor] = useState();
   const [imageLarge, setImage] = useState();
   const [amount, setAmount] = useState(1);
   const [stockk, setStock] = useState();
-
+console.log(imageLarge);
   const setIncrease = () => {
     if (stockk && stockk > amount) {
       setAmount(amount + 1)
@@ -30,7 +29,7 @@ export default function SingleProduct() {
   const { getSingleData, isSingleLoading, singleProductObj } = useMyContext();
 
   useEffect(() => {
-    getSingleData(`${API}${id}`)
+    getSingleData(`${id}`)
     console.log(id)
   }, [])
 
@@ -39,29 +38,38 @@ export default function SingleProduct() {
       <div>...loading</div>
     )
   }
-  else {
-    const { id: key, name, company, price, colors, description, stock, stars, reviews, image } = singleProductObj;
-    useEffect(() => {
-      if (image && image?.length > 0) {
-        setImage(image[0]?.url);
+  useEffect(() => {
+    if (singleProductObj && Array.isArray(singleProductObj) && singleProductObj.length > 0) {
+      const { images, stock, colors } = singleProductObj[0];
+  
+      if (images && images.length > 0) {
+        setImage(images[0]);
       }
-    
+  
       setStock(stock);
-    
+  
       if (stock && stock > 0) {
         setColor(colors?.[0]);
       }
-    }, [image, stock, colors]);
-    console.log(singleProductObj)
+    }
+  }, [singleProductObj]);
+    if (Array.isArray(singleProductObj) && singleProductObj.length > 0) {
+      const { id, name, company, price, colors, description, stock, stars, reviews, images } = singleProductObj[0];
+      console.log(singleProductObj,id,name,price,images)
+
+    // }
+    
+ 
     return (
       <>
         <Wrapper>
           <div className="container grid-two-col">
             <div className="images">
               <div className="grid_four">
-                {image?.map((e,i) => {
+                {images?.map((e,i) => {
+                  console.log(e);
                   return (
-                    <div key={i}  className="imgs" onClick={() => setImage(e.url)}><img src={e.url} alt="" /></div>
+                    <div key={i}  className="imgs" onClick={() => setImage(e)}><img src={e} alt="" /></div>
                   )
                 })}
               </div>
@@ -76,7 +84,7 @@ export default function SingleProduct() {
               <p className='deal'>deal of the day: <FormatPrice price={eval(price)}></FormatPrice></p>
               <p className='description'>{description}</p>
               <p className='stock'>Available:<u><b>{stock > 0 ? "In Stock" : "Out Of Stock"}</b></u></p>
-              <p className='id'> ID:{key}</p>
+              <p className='id'> ID:{id}</p>
               <p className='brand'>Brand:{company}</p>
               <hr />
               <p>colors:
@@ -90,6 +98,7 @@ export default function SingleProduct() {
 
               {/* //add to cart */}
               <CartAmountToggle id={id} product={singleProductObj} 
+              // name={name}
               color={color} 
               amount={amount} 
               setIncrease={setIncrease} 
@@ -110,7 +119,11 @@ const Wrapper = styled.section`
     padding: 4vh 15vw;
     display: grid;
     gap: 2vw;
-
+.imgs{
+  width: 9vw;
+  height: 9vh;
+  overflow: hidden;
+}
     img{
         width: 100%;
         object-fit: cover;
@@ -136,9 +149,6 @@ const Wrapper = styled.section`
     .grid_four{
       display: grid;
   grid-row-gap: 3vh;
-
-      /* background-color: ${props => props.theme.colors.primary}; */
-    
 
      
     }

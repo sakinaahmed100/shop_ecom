@@ -42,12 +42,13 @@ export default function filterReducer(state, action) {
             }
             else {
                 console.log(id,color,product,amount,"cartReducer");
+                console.log(product?.[0].name);
                 let cartProduct = {
                     id: id + color,
-                    name: product.name,
-                    amount: amount,
-                    price: product.price,
-                    image: product.image?.[0]?.url,
+                    name: product?.[0].name,
+                    amount:amount,
+                    price: product?.[0].price,
+                    image: product[0].images?.[0],
                     color: color,
                     stock: product.stock
 

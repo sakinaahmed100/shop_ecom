@@ -15,9 +15,9 @@ export default function Cart() {
 
       {
         (cart?.length === 0) ?
-        <div className='emptyDiv'>
-          <h3>Your cart is empty</h3>
-          <div><img src="/images/cart.jpg" alt="" /></div>
+          <div className='emptyDiv'>
+            <h3>Your cart is empty</h3>
+            <div><img src="/images/cart.jpg" alt="" /></div>
           </div>
           :
           <div className="cartDiv">
@@ -45,8 +45,10 @@ export default function Cart() {
             </div>
             <div className="cartData">
 
-              {cart?.map((item) => {
-                return (<CartItem {...item}></CartItem>)
+              {cart?.map((item,i) => {
+                return (<CartItem  key={i}{...item}>
+
+                  </CartItem>)
               })}
 
             </div>

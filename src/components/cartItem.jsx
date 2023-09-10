@@ -8,7 +8,7 @@ import { useCartContext } from '../context/cartContext';
 export default function CartItem(item) {
 
   const {deleteCartItem,setIncrease,setDecrease}=useCartContext()
-  const { id, color, name, image, price,amount,stock } = item
+  const { id, color, name, image, price,amount } = item
 
   console.log(color,item);
   
@@ -31,8 +31,8 @@ export default function CartItem(item) {
 
           </div>
           <div>
-            <p> <AmountDiv setIncrease={()=>setIncrease(item)} setDecrease={()=>setDecrease(item)} amount={amount}></AmountDiv>
-            </p>
+            <span> <AmountDiv setIncrease={()=>setIncrease(item)} setDecrease={()=>setDecrease(item)} amount={amount}></AmountDiv>
+            </span>
 
           </div>
           <div>

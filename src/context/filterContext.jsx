@@ -16,7 +16,7 @@ const initialState = {
         category: "All",
         company: "All",
         color: "All",
-       
+
     },
 }
 
@@ -43,7 +43,7 @@ const FilterContextProvider = ({ children }) => {
             console.log(products)
         }
         catch (error) {
-
+            console.log(error);
         }
 
 
@@ -72,7 +72,7 @@ const FilterContextProvider = ({ children }) => {
     useEffect(() => {
         dispatch({ type: "SORT_WITH_VALUE", payload: products })
 
-    }, [state.sorted_value,products])
+    }, [state.sorted_value, products])
 
     return (<FilterContext.Provider value={{ ...state, setGridView, setListView, sort, Search, removeFilters }}>{children}</FilterContext.Provider>)
 }

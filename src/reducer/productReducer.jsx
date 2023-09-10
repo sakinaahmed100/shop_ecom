@@ -30,8 +30,9 @@ switch (action.type) {
                 ...state,
                 isLoading:true,
             }
+
+
             case "SET_SINGLE_API_DATA":
-               
                 
             return{
                 ...state,
