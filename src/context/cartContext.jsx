@@ -16,7 +16,7 @@ const getStorageData = () => {
 }
 const initialState = {
   cart: getStorageData(),
-  // cart:[],
+  deliveryAddress:"",
   total_item: 0,
   subTotal: 0,
   shipping: 50000,
@@ -73,7 +73,8 @@ const getAddress=(e)=>{
 }
 
 const Success=()=>{
-  if(state.deliveryAddress){
+  if(state.deliveryAddress?.length!== 0){
+    console.log(state.deliveryAddress?.length, state.deliveryAddress);
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -83,7 +84,7 @@ const Success=()=>{
     })
     dispatch({type:"ORDER_PLACED"})
 
-    state.cart=[]
+   
     console.log(state.cart);
   }
  
