@@ -11,7 +11,7 @@ useEffect(()=>{
         console.log("hj");
         location.pathname="/products"
     }
-},[])
+},[cart])
 
     return (
         <>
