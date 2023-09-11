@@ -8,13 +8,15 @@ export default function filterReducer(state, action) {
 
             const doubleItem = state.cart?.filter((e) => {
                 console.log(id + color);
-                console.log("state==>",state,"cart=>",state.cart);
+                console.log("state==>",state,"cart=>",state.cart,"e==>",e);
                 return e.id === id + color
             })
-            console.log(doubleItem?.length);
+            console.log(doubleItem?.length,"doubleItem?.length");
 
-            if (doubleItem?.length !== 0) {
-                console.log("doubleItem?.length !== 0")
+            if (doubleItem.length!== 0) {
+            console.log(doubleItem?.length,"doubleItem?.length 2");
+            console.log("state==>2",state,"cart=>",state.cart);
+
                 let updatedProduct = state.cart?.map((e) => {
                     if (e.id === id + color) {
 
