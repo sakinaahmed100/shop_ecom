@@ -5,6 +5,7 @@ export default function filterReducer(state, action) {
         case "add_to_cart": {
             let {id,color,amount,product}=action.payload
             console.log("yes",action.payload);
+            console.log("11state==>",state,"cart=>",state.cart,"e==>",state.cart.id);
 
             const doubleItem = state.cart?.filter((e) => {
                 console.log(id + color);
@@ -13,7 +14,7 @@ export default function filterReducer(state, action) {
             })
             console.log(doubleItem?.length,"doubleItem?.length");
 
-            if (doubleItem.length!== 0) {
+            if (doubleItem?.length!== 0) {
             console.log(doubleItem?.length,"doubleItem?.length 2");
             console.log("state==>2",state,"cart=>",state.cart);
 
