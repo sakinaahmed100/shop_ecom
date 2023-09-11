@@ -59,6 +59,7 @@ align-items: center;
 .itemImg{
   width: 7vw;
   padding-right: 5px;
+  height: 7vh;
   img{
     width: 100%;
     object-fit: cover;

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const getStorageData = () => {
   let cartLocalData = localStorage.getItem("cartData")
   console.log(cartLocalData);
-  if (cartLocalData == []) {
+  if (cartLocalData === null || cartLocalData === "null") {
     return []
   }
   else {
