@@ -86,9 +86,14 @@ const Success=()=>{
 
    
     console.log(state.cart);
+  }}
+
+useEffect(()=>{
+  if(state.cart?.length===0 && location.pathname ==="/confirmOrder"){
+      console.log("hj");
+      location.pathname="/products"
   }
- 
-}
+},[])
 
 return (<CartContext.Provider value={{ ...state, ADD_TO_CART, deleteCartItem, ClearCart, setIncrease, setDecrease,Success,getAddress }}>{children}</CartContext.Provider>)
 

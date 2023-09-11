@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { styled } from 'styled-components'
 export default function HeroSection({ p1, h2, p2, btn, src }) {
   return (
@@ -9,7 +10,9 @@ export default function HeroSection({ p1, h2, p2, btn, src }) {
           </p>
           <h2 className='heroh2'>{h2}</h2>
           <p className="heroPara2">{p2}</p>
+          <NavLink to="/products">
           <button className='heroBtn'>{btn}</button>
+          </NavLink>
         </div>
         <div className="heroImg">
           <img src={src} alt="" />

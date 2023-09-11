@@ -1,17 +1,11 @@
 import { styled } from "styled-components"
 import { useCartContext } from "./context/cartContext"
-import { useEffect } from "react"
 import { NavLink } from 'react-router-dom'
 import Button from "./components/Button"
 
 export default function ConfirmOrder() {
     const { cart,Success,getAddress } = useCartContext()
-useEffect(()=>{
-    if(cart?.length===0){
-        console.log("hj");
-        location.pathname="/products"
-    }
-},[cart])
+
 
     return (
         <>
@@ -20,12 +14,13 @@ useEffect(()=>{
                 <div className='formDiv'>
                     <form action="https://formspree.io/f/xwkdkark" method='POST'>
                         <input className='formInput'onChange={(e)=>getAddress(e)} type="address" name='address' placeholder='Enter address for delivery' required autoComplete='off' />
-                        <div>
+                        {/* <div> */}
                             {cart?.map((item, index) => (
-                                <div key={index}>
+                                // <div key={index}>
                                     <textarea
+                                    key={index}
                                         className="cartTextArea"
-                                        name={`details-${index}`}
+                                        name={`details`}
                                         cols="30"
                                         rows="4"
                                         readOnly
@@ -33,9 +28,9 @@ useEffect(()=>{
                                         required
                                         autoComplete="off"
                                     ></textarea>
-                                </div>
+                                // </div>
                             ))}
-                        </div>
+                        {/* </div> */}
               <NavLink to="/products"><div className='continue'><Button btnText="Continue Shopping"></Button></div></NavLink>
                         <input className='btnconfirmOrder' onClick={Success} type="submit" value="Confirm Order" />
                     </form>

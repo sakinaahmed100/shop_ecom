@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from './components/Button'
 import { NavLink } from 'react-router-dom'
 import { styled } from 'styled-components'
@@ -8,9 +7,9 @@ export default function Error() {
     <>
       <Err>
         <h2>404</h2>
-        <p>UH OH! YOU'RE LOST</p>
+        <p>UH OH! YOU&apos;RE LOST</p>
         <p>This page you are looking for does not exist.How you got here is a mystery..Click the button below to go to home page</p>
-        <NavLink to="/home"><Button btnText="HOME"></Button></NavLink>
+        <NavLink to="/"><Button btnText="HOME"></Button></NavLink>
         </Err>
     </>
   )
