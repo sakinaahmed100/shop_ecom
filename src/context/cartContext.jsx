@@ -7,6 +7,7 @@ import { useEffect } from "react";
 //get item from local storage
 const getStorageData = () => {
   let cartLocalData = localStorage.getItem("cartData")
+  console.log(cartLocalData);
   if (cartLocalData == []) {
     return []
   }
