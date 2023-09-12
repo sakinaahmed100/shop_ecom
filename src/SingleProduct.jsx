@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useMyContext } from './context/productContext';
 import { styled } from 'styled-components'
 import FormatPrice from './components/FormatPrice';
-import { TiTick } from "react-icons/ti"
+import { TiTick,TiStar } from "react-icons/ti"
 import CartAmountToggle from './components/CartAmounttoggle';
 
 export default function SingleProduct() {
@@ -79,7 +79,7 @@ console.log(imageLarge);
             </div>
             <div className="data">
               <h3 className='name'>{name}</h3>
-              <p className='ratings'><span>{stars}</span><span>{reviews}</span></p>
+              <p className='ratings'><span>{stars}<TiStar></TiStar></span><span>({reviews})</span></p>
               <p className="price">MRP:<s><FormatPrice price={eval(price * 1.1)}></FormatPrice></s></p>
               <p className='deal'>deal of the day: <FormatPrice price={eval(price)}></FormatPrice></p>
               <p className='description'>{description}</p>
@@ -167,6 +167,9 @@ const Wrapper = styled.section`
   }
   .ratings, .id{
     font-size: .7rem;
+    display:flex;
+    align-items: center;
+    text-align: center;
   }
   .price{
     font-size:.7rem;
